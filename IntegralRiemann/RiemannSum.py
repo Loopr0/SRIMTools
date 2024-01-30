@@ -20,6 +20,7 @@ def SumRiemann(talbeau,xcol,ycol):
 
 fichier = "tab25.xlsx"
 tableau = pd.read_excel(fichier)
+
 xcolions = 0
 ycolions = 1
 

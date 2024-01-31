@@ -6,11 +6,11 @@ def pairsCounter(data,nombreions):
     Wmoy = 0
 
     for value in data["dE electronique (en eV)"]:
-        if 10<value<150:
+        if 13<value<200:
             Npairs += 1
             Energy.append(value)
         
-        elif value>150:
+        elif value>200:
             Npairs +=2
             Energy.append(value)
 

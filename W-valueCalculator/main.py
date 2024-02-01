@@ -1,18 +1,23 @@
 import pandas as pd
 import ShapeEXYZ as Sh
 import WvalueCalculator as WC
+import os
 
 
 
 
 Echoix = input("en eV:")
 Nions = int(input("nombre ions envoyé:"))
+askModif = input("modif?Y/N")
 
 
 fichier = "EXYZ" + Echoix + "eV.xlsx"
 tableau = pd.read_excel(fichier)
 
-modif = True
+if askModif == "Y":
+    modif = True
+else:
+    modif = False
 
 
 if modif == True:
@@ -28,5 +33,6 @@ if modif == True:
 else:
     new = tableau
 
-W, N = WC.pairsCounter(new,Nions)
-print("nombre de pairs moyen par particules =",N,"\nW-value =",W,"eV")
+Emoy, N = WC.pairsCounter(new,Nions)
+print("nombre de pairs moyen par particules =",N,"\nEmoy =",Emoy,"eV")
+os.system("pause")

@@ -3,21 +3,29 @@ import pandas as pd
 def pairsCounter(data,nombreions):
     Npairs = 0
     Energy = []
-    Wmoy = 0
+    Emoy = 0
 
     for value in data["dE electronique (en eV)"]:
-        if 13<value<200:
+        if 13<value<150:
             Npairs += 1
             Energy.append(value)
         
-        elif value>200:
+        elif 150<value<287:
             Npairs +=2
+            Energy.append(value)
+        
+        elif 287<value<424:
+            Npairs +=3
+            Energy.append(value)
+
+        elif 424<value<561:
+            Npairs +=3
             Energy.append(value)
 
     for i in Energy:
-        Wmoy += i
+        Emoy += i
 
-    Wmoy = Wmoy/Npairs
+    Emoy = Emoy/Npairs
     N=Npairs/nombreions
 
-    return Wmoy, N
+    return Emoy, N
